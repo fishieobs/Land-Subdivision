@@ -1,0 +1,6 @@
+{
+  "name": "土地分割與找補金額試算系統",
+  "description": "提供土地登記謄本解析、標示部與所有權部資料匯入、分享方案設計、找補金額試算及 Word/Excel 報告匯出功能。",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
