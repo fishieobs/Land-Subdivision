@@ -181,8 +181,8 @@ export default function App() {
       <header className="bg-white border-b border-gray-200 px-8 py-6 sticky top-0 z-10 shadow-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="bg-indigo-600 p-2 rounded-lg text-white">
-              <FileBadge size={24} />
+            <div className="w-10 h-10 bg-indigo-600 rounded-lg overflow-hidden shadow-inner">
+              <img src="icon.svg" alt="Logo" className="w-full h-full p-1.5" />
             </div>
             <div>
               <h1 className="text-xl font-bold tracking-tight text-gray-900">土地分割與找補試算系統</h1>

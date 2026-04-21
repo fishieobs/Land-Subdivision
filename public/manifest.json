@@ -1,0 +1,17 @@
+{
+  "name": "土地分割與找補試算系統",
+  "short_name": "土地分割",
+  "description": "專業土地分割與找補金額試算工具",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F8F9FA",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
