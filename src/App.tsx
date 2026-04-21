@@ -238,7 +238,8 @@ export default function App() {
             </button>
           </nav>
         </div>
-      </header>
+      </div>
+    </header>
 
       <main className="max-w-7xl mx-auto p-8">
         <AnimatePresence mode="wait">
