@@ -30,6 +30,7 @@ export async function extractLandDataFromPdf(base64Data: string) {
             "owners": [
               {
                 "name": "string",
+                "address": "string",
                 "numerator": number,
                 "denominator": number
               }
@@ -60,6 +61,7 @@ export async function extractLandDataFromPdf(base64Data: string) {
               type: Type.OBJECT,
               properties: {
                 name: { type: Type.STRING },
+                address: { type: Type.STRING },
                 numerator: { type: Type.NUMBER },
                 denominator: { type: Type.NUMBER }
               },

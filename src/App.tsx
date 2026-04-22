@@ -108,6 +108,7 @@ export default function App() {
       const result = results.find(r => r.ownerId === o.id);
       return {
         '共有人姓名': o.name,
+        '住址': o.address || '',
         '權利範圍(分子)': o.numerator,
         '權利範圍(分母)': o.denominator,
         '應得面積': result?.entitledArea.toFixed(2),
@@ -145,22 +146,24 @@ export default function App() {
             rows: [
               new TableRow({
                 children: [
-                  new TableCell({ children: [new Paragraph("姓名")] }),
-                  new TableCell({ children: [new Paragraph("權利範圍")] }),
-                  new TableCell({ children: [new Paragraph("應得面積")] }),
-                  new TableCell({ children: [new Paragraph("主張面積")] }),
-                  new TableCell({ children: [new Paragraph("找補金額")] }),
+                   new TableCell({ children: [new Paragraph("姓名")] }),
+                   new TableCell({ children: [new Paragraph("住址")] }),
+                   new TableCell({ children: [new Paragraph("權利範圍")] }),
+                   new TableCell({ children: [new Paragraph("應得面積")] }),
+                   new TableCell({ children: [new Paragraph("主張面積")] }),
+                   new TableCell({ children: [new Paragraph("找補金額")] }),
                 ],
               }),
               ...owners.map(o => {
                 const r = results.find(res => res.ownerId === o.id);
                 return new TableRow({
                   children: [
-                    new TableCell({ children: [new Paragraph(o.name)] }),
-                    new TableCell({ children: [new Paragraph(`${o.numerator}/${o.denominator}`)] }),
-                    new TableCell({ children: [new Paragraph(r?.entitledArea.toFixed(2) || '0')] }),
-                    new TableCell({ children: [new Paragraph(o.proposedArea.toFixed(2))] }),
-                    new TableCell({ children: [new Paragraph(r?.compensation.toFixed(0) || '0')] }),
+                     new TableCell({ children: [new Paragraph(o.name)] }),
+                     new TableCell({ children: [new Paragraph(o.address || '')] }),
+                     new TableCell({ children: [new Paragraph(`${o.numerator}/${o.denominator}`)] }),
+                     new TableCell({ children: [new Paragraph(r?.entitledArea.toFixed(2) || '0')] }),
+                     new TableCell({ children: [new Paragraph(o.proposedArea.toFixed(2))] }),
+                     new TableCell({ children: [new Paragraph(r?.compensation.toFixed(0) || '0')] }),
                   ],
                 });
               }),
@@ -278,6 +281,7 @@ export default function App() {
                         setOwners([{
                           id: 'owner-1',
                           name: '所有權人A',
+                          address: '請輸入地址',
                           numerator: 1,
                           denominator: 1,
                           proposedArea: 100,
@@ -368,6 +372,7 @@ export default function App() {
                     <thead>
                       <tr className="border-b border-gray-100 italic text-[11px] uppercase tracking-widest text-gray-400 font-serif">
                         <th className="px-6 py-4">姓名</th>
+                        <th className="px-6 py-4">住址</th>
                         <th className="px-6 py-4">權利範圍 (分子/分母)</th>
                         <th className="px-6 py-4">應得面積 (m²)</th>
                         <th className="px-6 py-4">操作</th>
@@ -381,6 +386,14 @@ export default function App() {
                               className="font-medium bg-transparent focus:outline-none focus:ring-1 focus:ring-indigo-200 rounded px-2"
                               value={owner.name}
                               onChange={e => updateOwner(owner.id, { name: e.target.value })}
+                            />
+                          </td>
+                          <td className="px-6 py-4">
+                            <input 
+                              className="text-sm bg-transparent focus:outline-none focus:ring-1 focus:ring-indigo-200 rounded px-2 w-full"
+                              value={owner.address || ''}
+                              placeholder="載入中或未填寫"
+                              onChange={e => updateOwner(owner.id, { address: e.target.value })}
                             />
                           </td>
                           <td className="px-6 py-4">

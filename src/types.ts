@@ -1,6 +1,7 @@
 export interface Owner {
   id: string;
   name: string;
+  address?: string; // 住址
   numerator: number; // 權利範圍 分子
   denominator: number; // 權利範圍 分母
   proposedArea: number; // 原告主張面積
